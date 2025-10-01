@@ -1,0 +1,101 @@
+Objective
+Build a small Real Estate Listings API using Node.js + MySQL + 
+MongoDB + Laravel.
+This task is designed to evaluate your coding style, communication 
+skills, and attention to detail.
+You should be able to complete this in 3-4 hours.
+
+Deliverables
+Include the following in your email:
+ 1. Github Repo Link - with your full codebase
+     a. README.md — must include:
+        •  Setup instructions
+        •  Choices and decisions you made
+        •  What you would improve if you had more than 4 hours
+ 2. Postman Collection — containing all your API endpoints, with 
+    sample requests/responses.
+ 3. Linkedln Profile Link.
+ 4. Self-Rating — rate your completed task 1-10.
+ 5. Email Title Format:
+      Task Submission For Backend Developer - <Your Name> 
+      <Years Of Experience>
+
+Tech Stack
+ •  Node.js (80%) 4 Main API implementation
+ •  MySQL 4 Relational storage
+ •  MongoDB 4 Aggregation/statistics
+ •  Laravel (PHP) 4 Legacy task
+We provide you with:
+ •  SQL Dump File (MySQL schema + seed data)
+     O mashvisor_dump_db.sql
+ •  NoSQL JSON Files
+     O views.json
+     O listings.json
+     O agents.json
+
+Task Details
+ ! Do not spend more than 3-4 hours doing this test. If it's 
+   taking you longer than that, we are probably not a right fit
+
+
+Part 1 — Node.js + MySQL CRUD API
+
+1. Create a REST API for listings (CRUD: Create, Read, Update, 
+  Delete).
+2. Each listing record includes:
+  • ID, Title, City, Price, Bedrooms, Agentld.
+3. Requirements:
+  • Return prices formatted to 2 decimal places.
+  • The city field must be stored lowercase in DB, but 
+    returned capitalized in the API response.
+  • Errors must follow a consistent JSON format: 
+     { "error" true, "message": "Something went wrong"    }
+
+
+
+Part 2 — MongoDB Aggregation
+
+
+ Task: Create an endpoint GET /stats/active—agents 
+Return a report of active agents only, with:
+• Agent name
+• Total listings they own
+• Total views across their listings
+• Only count listings priced above 300,000
+• Include agents even if they have 0 listings or 0 views
+• Sort by totalviews descending
+
+
+Expected Response Example:
+
+ [ 
+    { "agent": "Carol Lee", "listings": 1, "totalViews": 200 },
+    { "agent": "Alice Smith", "listings": 0, "totalViews" 0 } 
+]
+
+
+
+
+Part 3 — Laravel Mini-Task
+
+Create a Laravel route:
+• Route: GET /laravel/listings
+• Fetch all listings from MySQL and return as JSON.
+• Response must include an extra field:
+
+
+
+   { "source": "laravel" }
+
+Evaluation Criteria
+
+You will be evaluated on:
+
+• Coding Style — clean, modular, consistent.
+• API Design — structure, error handling, formatting.
+• Communication Skills — clarity of README, Postman 
+  documentation.
+• Attention to Detail 
+  o All subtle requirements given in the task
+o Include the number 11 at start of the subject line of your 
+ email.

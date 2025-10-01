@@ -1,0 +1,5 @@
+[
+  { "_id": 1, "title": "Modern Apartment", "city": "New York", "agentId": 101, "price": 250000 },
+  { "_id": 2, "title": "Cozy Suburban Home", "city": "Chicago", "agentId": 102, "price": 320000 },
+  { "_id": 3, "title": "Luxury Condo", "city": "New York", "agentId": 103, "price": 450000 }
+]

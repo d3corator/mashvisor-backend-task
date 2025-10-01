@@ -1,0 +1,51 @@
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: realestate_mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: exam_db
+      MYSQL_USER: app_user
+      MYSQL_PASSWORD: app_password
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./mashvisor_dump_db.sql:/docker-entrypoint-initdb.d/01-init.sql
+      - ./listings_schema.sql:/docker-entrypoint-initdb.d/02-listings.sql
+      - mysql_data:/var/lib/mysql
+    command: --default-authentication-plugin=mysql_native_password
+
+  mongodb:
+    image: mongo:7.0
+    container_name: realestate_mongodb
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: rootpassword
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+      - mongodb_data:/data/db
+
+  nodejs:
+    build: ./nodejs
+    container_name: realestate_nodejs
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+      - MYSQL_HOST=mysql
+      - MYSQL_USER=app_user
+      - MYSQL_PASSWORD=app_password
+      - MYSQL_DATABASE=exam_db
+      - MONGODB_URI=mongodb://root:rootpassword@mongodb:27017/realestate?authSource=admin
+    depends_on:
+      - mysql
+      - mongodb
+    volumes:
+      - ./nodejs:/app
+      - /app/node_modules
+
+volumes:
+  mysql_data:
+  mongodb_data:
