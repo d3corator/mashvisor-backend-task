@@ -46,6 +46,21 @@ services:
       - ./nodejs:/app
       - /app/node_modules
 
+  laravel:
+    build: ./laravel-app
+    container_name: realestate_laravel
+    ports:
+      - "8000:8000"
+    environment:
+      - DB_HOST=mysql
+      - DB_DATABASE=exam_db
+      - DB_USERNAME=app_user
+      - DB_PASSWORD=app_password
+    depends_on:
+      - mysql
+    volumes:
+      - ./laravel-app:/var/www/html
+
 volumes:
   mysql_data:
   mongodb_data:

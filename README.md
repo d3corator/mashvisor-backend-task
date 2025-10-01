@@ -1,56 +1,58 @@
 # Real Estate Listings API
 
-A Real Estate Listings API built with Node.js, MySQL, and MongoDB.
+A Real Estate Listings API built with Node.js, MySQL, MongoDB, and Laravel.
 
 ## Tech Stack
 
-- **Node.js** - Main API implementation
+- **Node.js** - Main API with Express.js
 - **MySQL** - Relational storage
 - **MongoDB** - Aggregation/statistics
+- **Laravel** - Legacy PHP endpoint
 
-## Quick Start
+## Setup Instructions
 
 1. **Start all services:**
    ```bash
    docker compose up --build -d
    ```
 
-2. **Verify services are running:**
-   ```bash
-   docker compose ps
-   ```
-
-3. **Test endpoints:**
+2. **Test endpoints:**
    - Node.js API: http://localhost:3000
-   - MySQL: localhost:3306
-   - MongoDB: localhost:27017
+   - Laravel API: http://localhost:8000
 
-## Services
+## API Endpoints
 
-- **MySQL** (Port 3306): Database with exam_db schema
-- **MongoDB** (Port 27017): NoSQL database with agents, listings, views collections
-- **Node.js** (Port 3000): Main API server
+### Node.js API (Port 3000)
+- `GET /listings` - Get all listings
+- `GET /listings/:id` - Get specific listing
+- `POST /listings` - Create listing
+- `PUT /listings/:id` - Update listing
+- `DELETE /listings/:id` - Delete listing
+- `GET /stats/active-agents` - Active agents statistics
+
+### Laravel API (Port 8000)
+- `GET /laravel/listings` - Get all listings (legacy format)
 
 ## Database Credentials
 
-- **MySQL**: 
-  - User: app_user
-  - Password: app_password
-  - Database: exam_db
+- **MySQL**: app_user / app_password (exam_db)
+- **MongoDB**: root / rootpassword (realestate)
 
-- **MongoDB**:
-  - User: root
-  - Password: rootpassword
-  - Database: realestate
+## Choices and Decisions Made
 
-## Development
+1. **Docker Compose** - Easy setup and consistent environment
+2. **Separate Databases** - MySQL for CRUD, MongoDB for aggregation
+3. **Laravel Official Tools** - Used `composer create-project` for clean structure
+4. **File Sessions** - Avoided database sessions complexity
+5. **Consistent Error Format** - JSON error responses across all APIs
+6. **Data Formatting** - Price to 2 decimals, city capitalization
 
-To stop all services:
-```bash
-docker compose down
-```
+## What I Would Improve (Given More Than 4 Hours)
 
-To view logs:
-```bash
-docker compose logs -f [service_name]
-```
+1. **Testing** - Unit tests, integration tests, API testing
+2. **Validation** - Input validation, data sanitization
+3. **Security** - Authentication, rate limiting, CORS
+4. **Documentation** - Swagger/OpenAPI docs
+5. **Performance** - Database indexes, connection pooling
+6. **Monitoring** - Logging, health checks, metrics
+7. **Code Quality** - ESLint, code standards, modular structure

@@ -1,0 +1,543 @@
+{
+	"info": {
+		"_postman_id": "real-estate-api-collection",
+		"name": "Real Estate Listings API",
+		"description": "Complete API collection for Real Estate Listings with Node.js and Laravel endpoints",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Node.js API",
+			"item": [
+				{
+					"name": "Listings CRUD",
+					"item": [
+						{
+							"name": "Get All Listings",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/listings",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"listings"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success Response",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/listings",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"listings"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "[\n  {\n    \"id\": 1,\n    \"title\": \"Modern Apartment\",\n    \"city\": \"New York\",\n    \"price\": \"250000.00\",\n    \"bedrooms\": 2,\n    \"agent_id\": 101,\n    \"created_at\": \"2025-10-01T20:20:05.000Z\",\n    \"updated_at\": \"2025-10-01T20:20:05.000Z\"\n  },\n  {\n    \"id\": 2,\n    \"title\": \"Cozy Suburban Home\",\n    \"city\": \"Chicago\",\n    \"price\": \"320000.00\",\n    \"bedrooms\": 3,\n    \"agent_id\": 102,\n    \"created_at\": \"2025-10-01T20:20:05.000Z\",\n    \"updated_at\": \"2025-10-01T20:20:05.000Z\"\n  }\n]"
+								}
+							]
+						},
+						{
+							"name": "Get Listing by ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/listings/1",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"listings",
+										"1"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success Response",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/listings/1",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"listings",
+												"1"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"id\": 1,\n  \"title\": \"Modern Apartment\",\n  \"city\": \"New York\",\n  \"price\": \"250000.00\",\n  \"bedrooms\": 2,\n  \"agent_id\": 101,\n  \"created_at\": \"2025-10-01T20:20:05.000Z\",\n  \"updated_at\": \"2025-10-01T20:20:05.000Z\"\n}"
+								},
+								{
+									"name": "Not Found Response",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/listings/999",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"listings",
+												"999"
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"error\": true,\n  \"message\": \"Listing not found\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Create New Listing",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"title\": \"Beautiful Villa\",\n  \"city\": \"miami\",\n  \"price\": 550000,\n  \"bedrooms\": 4,\n  \"agent_id\": 101\n}"
+								},
+								"url": {
+									"raw": "{{base_url}}/listings",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"listings"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success Response",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"title\": \"Beautiful Villa\",\n  \"city\": \"miami\",\n  \"price\": 550000,\n  \"bedrooms\": 4,\n  \"agent_id\": 101\n}"
+										},
+										"url": {
+											"raw": "{{base_url}}/listings",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"listings"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"id\": 6,\n  \"title\": \"Beautiful Villa\",\n  \"city\": \"Miami\",\n  \"price\": \"550000.00\",\n  \"bedrooms\": 4,\n  \"agent_id\": 101,\n  \"created_at\": \"2025-10-01T21:30:00.000Z\",\n  \"updated_at\": \"2025-10-01T21:30:00.000Z\"\n}"
+								},
+								{
+									"name": "Validation Error Response",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"title\": \"\",\n  \"city\": \"miami\",\n  \"price\": -100,\n  \"bedrooms\": 0,\n  \"agent_id\": 101\n}"
+										},
+										"url": {
+											"raw": "{{base_url}}/listings",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"listings"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"error\": true,\n  \"message\": \"Title is required\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Update Listing",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"title\": \"Updated Modern Apartment\",\n  \"city\": \"new york\",\n  \"price\": 275000,\n  \"bedrooms\": 3,\n  \"agent_id\": 101\n}"
+								},
+								"url": {
+									"raw": "{{base_url}}/listings/1",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"listings",
+										"1"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success Response",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"title\": \"Updated Modern Apartment\",\n  \"city\": \"new york\",\n  \"price\": 275000,\n  \"bedrooms\": 3,\n  \"agent_id\": 101\n}"
+										},
+										"url": {
+											"raw": "{{base_url}}/listings/1",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"listings",
+												"1"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"id\": 1,\n  \"title\": \"Updated Modern Apartment\",\n  \"city\": \"New York\",\n  \"price\": \"275000.00\",\n  \"bedrooms\": 3,\n  \"agent_id\": 101,\n  \"created_at\": \"2025-10-01T20:20:05.000Z\",\n  \"updated_at\": \"2025-10-01T21:35:00.000Z\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Delete Listing",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/listings/1",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"listings",
+										"1"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success Response",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/listings/1",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"listings",
+												"1"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"message\": \"Listing deleted successfully\"\n}"
+								},
+								{
+									"name": "Not Found Response",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/listings/999",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"listings",
+												"999"
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"error\": true,\n  \"message\": \"Listing not found\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Statistics",
+					"item": [
+						{
+							"name": "Get Active Agents Stats",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/stats/active-agents",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"stats",
+										"active-agents"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success Response",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/stats/active-agents",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"stats",
+												"active-agents"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "[\n  {\n    \"agent\": \"Carol Lee\",\n    \"listings\": 1,\n    \"totalViews\": 200\n  },\n  {\n    \"agent\": \"Alice Smith\",\n    \"listings\": 1,\n    \"totalViews\": 180\n  }\n]"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Laravel API",
+			"item": [
+				{
+					"name": "Get Laravel Listings",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{laravel_base_url}}/laravel/listings",
+							"host": [
+								"{{laravel_base_url}}"
+							],
+							"path": [
+								"laravel",
+								"listings"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{laravel_base_url}}/laravel/listings",
+									"host": [
+										"{{laravel_base_url}}"
+									],
+									"path": [
+										"laravel",
+										"listings"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"source\": \"laravel\",\n  \"listings\": [\n    {\n      \"id\": 1,\n      \"title\": \"Modern Apartment\",\n      \"city\": \"new york\",\n      \"price\": \"250000.00\",\n      \"bedrooms\": 2,\n      \"agent_id\": 101,\n      \"created_at\": \"2025-10-01 20:20:05\",\n      \"updated_at\": \"2025-10-01 20:20:05\"\n    },\n    {\n      \"id\": 2,\n      \"title\": \"Cozy Suburban Home\",\n      \"city\": \"chicago\",\n      \"price\": \"320000.00\",\n      \"bedrooms\": 3,\n      \"agent_id\": 102,\n      \"created_at\": \"2025-10-01 20:20:05\",\n      \"updated_at\": \"2025-10-01 20:20:05\"\n    }\n  ]\n}"
+						},
+						{
+							"name": "Error Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{laravel_base_url}}/laravel/listings",
+									"host": [
+										"{{laravel_base_url}}"
+									],
+									"path": [
+										"laravel",
+										"listings"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"error\": true,\n  \"message\": \"Failed to fetch listings: Connection refused\"\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:3000",
+			"type": "string"
+		},
+		{
+			"key": "laravel_base_url",
+			"value": "http://localhost:8000",
+			"type": "string"
+		}
+	]
+}
